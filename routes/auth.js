@@ -32,6 +32,7 @@ export const isMainAdmin = async (req, res, next) => {
  */
 router.post('/register', async (req, res) => {
   try {
+    console.log("📩 Received Registration Request:", req.body);
     const { name, email, password } = req.body;
 
     const existing = await User.findOne({ email: email.toLowerCase() });
@@ -53,6 +54,7 @@ router.post('/register', async (req, res) => {
     res.status(201).json({ message: 'Student registered successfully' });
   } catch (err) {
     console.error('[Route] Student Registration Error:', err);
+    console.error(err.stack); // Full stack trace
     res.status(500).json({ message: 'Server error' });
   }
 });
