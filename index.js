@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
   res.send('✅ JobBridge API is running!');
 });
 
-app.use('/api/auth', authRoutes); // ✅ Fixed path here
+app.use('/api/auth', authRoutes); 
 app.use('/api/admins', adminRoutes);
 app.use('/api', jobRoutes);
 app.use('/api', applyRoute);
